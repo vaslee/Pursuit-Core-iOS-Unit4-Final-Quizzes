@@ -12,12 +12,14 @@ class QuizView: UIView {
 
     lazy var quizCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize.init(width: 190, height: 250)
+        layout.itemSize = CGSize.init(width: 180, height: 300)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
-        layout.scrollDirection = .horizontal
+
+        
+        layout.scrollDirection = .vertical
         
         let CV = UICollectionView.init(frame: bounds, collectionViewLayout: layout)
-        CV.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        CV.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         
         return CV
@@ -47,8 +49,11 @@ extension QuizView {
     func setupQuizCollectionView() {
         addSubview(quizCollectionView)
         quizCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        quizCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        quizCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+
+        
+        quizCollectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.9).isActive = true
+        quizCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
+        quizCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
         
     }
     

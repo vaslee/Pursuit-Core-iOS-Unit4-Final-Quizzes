@@ -9,10 +9,11 @@
 import Foundation
 
 final class QuizAPIClient {
-    static func searchQuiz(keyword: String, completion: @escaping (AppError?, [Quiz]?) -> Void) {
+    static func searchQuiz(completion: @escaping (AppError?, [Quiz]?) -> Void) {
         
         NetworkHelper.shared.performDataTask(endpointURLString: "http://5c4d4c0d0de08100147c59b5.mockapi.io/api/v1/quizzes", httpMethod: "GET", httpBody: nil) { (appError, data) in
             if let appError = appError {
+                print(appError)
                 completion(appError, nil)
             }
             if let data = data {
@@ -22,6 +23,7 @@ final class QuizAPIClient {
                     completion(nil, quizData)
                 } catch {
                     completion(appError, nil)
+                    
                 }
             }
         }

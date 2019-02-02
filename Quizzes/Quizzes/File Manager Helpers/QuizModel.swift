@@ -46,10 +46,29 @@ final class QuizModel {
         return quizsData
     }
     
-    static func deleteQuiz(atIndex index: Int) {
-        quizsData.remove(at: index)
-        saveQuiz()
+//    static func deleteQuiz(quiz: Quiz) {
+//
+//        var quizes = getQuiz() //get [] first
+//        let index = quizes.firstIndex{ $0.id == quiz.id }
+//        if let foundIndex = index {
+//            quizes.remove(at: foundIndex)
+//        }
+//
+//        // save our update (uauslly we call a func, but runout time!)
+//        let path = DataPersistenceManager.filepathToDocumentsDiretory(filename: filename)
+//        do {
+//            let data = try PropertyListEncoder().encode(quizes)
+//            try data.write(to: path, options: Data.WritingOptions.atomic)
+//        } catch {
+//            print("property list encoding error: \(error)")
+//        }
+//    }
+//
+    static func deleteQuiz(quiz: Quiz,atIndex index: Int) {
+                quizsData.remove(at: index)
+                saveQuiz()
     }
+   
     
     static func addQuiz(quiz: Quiz) {
         quizsData.append(quiz)
