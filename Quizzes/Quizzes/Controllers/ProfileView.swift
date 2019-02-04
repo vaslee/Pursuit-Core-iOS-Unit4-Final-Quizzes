@@ -9,37 +9,35 @@
 import UIKit
 
 class ProfileView: UIView {
-    
-    lazy var myView: UIView = {
-        let view = UIView()
+  
+    lazy var myLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Edit Photo"
+        label.backgroundColor = .white
         
-        return view
+        return label
     }()
-    
     
     lazy var myImage: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "placeholder-image"), for: .normal)
-        button.addTarget(self, action: #selector(imagePressed), for: .touchUpInside)
+      
         
         return button
     }()
     
-    @objc func imagePressed() {
-        
-    }
+   
     
     lazy var myUserName: UIButton = {
        let button = UIButton()
-        button.setTitle("UserName", for: .normal)
-        button.addTarget(self, action: #selector(userNamePressed), for: .touchUpInside)
+        button.setTitle("@UserName", for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1), for: .normal)
+       button.backgroundColor = .white
         
         return button
     }()
     
-    @objc func userNamePressed() {
-        
-    }
+   
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -58,16 +56,40 @@ class ProfileView: UIView {
 }
 extension ProfileView {
     private func setupProfile() {
+        setLabelConstraints()
         setupProfileTableView()
+        setUserNameButtonConstraints()
     }
     
-    func setupProfileTableView() {
-        addSubview(myView)
-        
-        myView.translatesAutoresizingMaskIntoConstraints = false
-        myView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        myView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        myView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-        myView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
+    func setLabelConstraints() {
+        addSubview(myLabel)
+        myLabel.translatesAutoresizingMaskIntoConstraints = false
+        myLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 115).isActive = true
+        myLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11).isActive = true
+        myLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11).isActive = true
     }
+    
+    
+    func setupProfileTableView() {
+        addSubview(myImage)
+        
+        myImage.translatesAutoresizingMaskIntoConstraints = false
+
+        myImage.translatesAutoresizingMaskIntoConstraints = false
+        myImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 150).isActive = true
+        myImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        myImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        myImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
+
+    }
+    func setUserNameButtonConstraints() {
+       addSubview(myUserName)
+
+        myUserName.translatesAutoresizingMaskIntoConstraints = false
+        myUserName.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        myUserName.topAnchor.constraint(equalTo: myImage.bottomAnchor, constant: 15).isActive = true
+        myUserName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
+        myUserName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
+    }
+    
 }
