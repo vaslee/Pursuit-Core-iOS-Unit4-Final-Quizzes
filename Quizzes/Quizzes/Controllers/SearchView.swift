@@ -12,14 +12,14 @@ class SearchView: UIView {
 
     lazy var searchCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize.init(width: 180, height: 300)
+        layout.itemSize = CGSize.init(width: 300, height: 300)
         layout.sectionInset = UIEdgeInsets.init(top: 20, left: 10, bottom: 20, right: 10)
         
         
         layout.scrollDirection = .vertical
         
         let CV = UICollectionView.init(frame: bounds, collectionViewLayout: layout)
-        CV.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        CV.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         
         return CV

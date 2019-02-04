@@ -11,14 +11,16 @@ import UIKit
 class QuizViewController: UIViewController {
     
     var titleLabel = String()
-    var saveQuiz = QuizModel.getQuiz()
-   
-    var detailView = DetailView()
-    var quizs = [Quiz]() {
+    var saveQuiz = QuizModel.getQuiz(){
         didSet {
-            self.quizView.quizCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.quizView.quizCollectionView.reloadData()
+
+            }
         }
     }
+   
+    var detailView = DetailView()
     let quizView = QuizView()
     
   override func viewDidLoad() {
@@ -30,37 +32,27 @@ class QuizViewController: UIViewController {
     view.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
     view.addSubview(quizView)
      self.quizView.quizCollectionView.register(QuizCell.self, forCellWithReuseIdentifier: "QuizCell")
+        saveQuiz = QuizModel.getQuiz()
+  
     
-    quizInfo()
-    
-    
-    }
-    
-    private func quizInfo() {
-        QuizAPIClient.searchQuiz() { (appError, quiz) in
-            DispatchQueue.main.async {
-            
-            if let appError = appError {
-                print(appError.errorMessage())
-            } else if let quizes = quiz {
-                self.quizs = quizes
-                }
-            }
-        }
     
     }
+    override func viewWillAppear(_ animated: Bool) {
+        saveQuiz = QuizModel.getQuiz()
+    }
+    
 }
 
 extension QuizViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return quizs.count
+        return saveQuiz.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuizCell", for: indexPath) as? QuizCell else {
             return UICollectionViewCell()
         }
-        let quizes = quizs[indexPath.row]
+        let quizes = saveQuiz[indexPath.row]
        //cell.myButton.setTitle(quizes.quizTitle, for: .normal)
         cell.titleLabel.text = quizes.quizTitle
     cell.alertButton.addTarget(self, action: #selector(alertAction), for: .touchUpInside)
@@ -71,7 +63,7 @@ extension QuizViewController: UICollectionViewDataSource {
  
         let alert = UIAlertController(title: "What do you need?", message: "Please Select an Option", preferredStyle: .actionSheet)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-         //   QuizModel.deleteQuiz(quiz: quizs, atIndex: sender.tag)
+            QuizModel.deleteQuiz(atIndex: sender.tag)
             self.saveQuiz = QuizModel.getQuiz()
             self.detailView.detailCollectionView.reloadData()
         })
@@ -87,10 +79,11 @@ extension QuizViewController: UICollectionViewDataSource {
 
 extension QuizViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let quizes = quizs[indexPath.row]
+        let quizes = saveQuiz[indexPath.row]
         let detailVC = DetailViewController()
         detailVC.quiz = quizes
-        detailVC.detailLabel = titleLabel
+//        detailVC.detailLabel = quizes.quizTitle
+        
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

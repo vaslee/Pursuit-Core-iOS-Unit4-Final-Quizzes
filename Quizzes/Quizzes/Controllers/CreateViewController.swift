@@ -32,7 +32,7 @@ class CreateViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     @objc func createPressed(){
-        if createView.myTextField.text?.isEmpty == false && createView.myFirstTextView.text.isEmpty == false && createView.mySecondTextView.text.isEmpty == false {
+        if createView.myTextField.text == "" && createView.myFirstTextView.text == "" && createView.mySecondTextView.text == "" {
             showAlert(title: "Card Completed", message: "Card is now in the Quiz")
             
         //    QuizModel.addQuiz(quiz: quizs)

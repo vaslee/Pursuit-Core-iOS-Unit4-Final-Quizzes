@@ -13,7 +13,6 @@ class DetailCell: UICollectionViewCell {
     lazy var detailTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
-        
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -46,10 +45,10 @@ extension DetailCell {
     func setDetailTitleLabelConstraints() {
         addSubview(detailTitleLabel)
         detailTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        detailTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        detailTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        detailTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-        detailTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
+        detailTitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        detailTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        detailTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        detailTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     }
     
     

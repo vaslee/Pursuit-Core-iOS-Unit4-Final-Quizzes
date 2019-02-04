@@ -64,7 +64,7 @@ final class QuizModel {
 //        }
 //    }
 //
-    static func deleteQuiz(quiz: Quiz,atIndex index: Int) {
+    static func deleteQuiz(atIndex index: Int) {
                 quizsData.remove(at: index)
                 saveQuiz()
     }
