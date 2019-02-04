@@ -48,14 +48,13 @@ class ProfileCell: UITableViewCell {
     func setImageConstraints() {
         myImage.translatesAutoresizingMaskIntoConstraints = false
         myImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        myImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         myImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
         myImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     func setButtonConstraints() {
         myButton.translatesAutoresizingMaskIntoConstraints = false
-       // myButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        myButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         myButton.topAnchor.constraint(equalTo: myImage.bottomAnchor, constant: 5).isActive = true
         myButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
         myButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true

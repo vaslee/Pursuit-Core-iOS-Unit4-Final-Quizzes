@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     
     let detailView = DetailView()
     
-   public var quiz: Quiz!
+   public var quiz: Create!
 
     
     override func viewDidLoad() {
@@ -26,29 +26,11 @@ class DetailViewController: UIViewController {
       
        
         self.detailView.detailCollectionView.register(DetailCell.self, forCellWithReuseIdentifier: "DetailCell")
-       
         
     }
-    func setupData() {
-       // if let title = quiz.quizTitle {
-            //quiz.quizTitle = title
-       // }
-//
-//        if let images = imageOfBooks {
-//            detailView.detailBookImage.image = images
-//        }
-//
-//        if let descriptions = descriptionOfBooks {
-//            detailView.detailDescriptionOfBook.text = descriptions
-//        }
-        
-    }
-    
-  
-
 }
 
-//
+
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return quiz.facts.count

@@ -15,6 +15,8 @@ class CreateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(createPressed))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPressed))
@@ -31,11 +33,18 @@ class CreateViewController: UIViewController {
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    
+    
     @objc func createPressed(){
-        if createView.myTextField.text == "" && createView.myFirstTextView.text == "" && createView.mySecondTextView.text == "" {
-            showAlert(title: "Card Completed", message: "Card is now in the Quiz")
+        if (createView.myTextField.text?.isEmpty == false && createView.myTextField.text != "Title") && (createView.myFirstTextView.text != "" && createView.myFirstTextView.text != "Enter first quiz fact") && (createView.mySecondTextView.text != "" && createView.mySecondTextView.text != "Enter second quiz fact") {
+            let id = UUID().uuidString
+            let createTitle = createView.myTextField.text!
+            let fact = [createView.myFirstTextView.text!, createView.mySecondTextView.text!]
+            let create = Create.init(id: id, quizTitle: createTitle, facts: fact)
+            QuizModel.addQuiz(quiz: create)
             
-        //    QuizModel.addQuiz(quiz: quizs)
+            showAlert(title: "Card Completed", message: "Card is now in the Quiz")
            let quizVC = QuizViewController()
             navigationController?.popToViewController(quizVC, animated: true)
             
@@ -46,6 +55,7 @@ class CreateViewController: UIViewController {
     }
 
     @objc func cancelPressed() {
+        tabBarController?.selectedIndex = 1
         dismiss(animated: true, completion: nil)
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 final class QuizModel {
     private static let filename = "QuizList.plist"
-    private static var quizsData = [Quiz]()
+    private static var quizsData = [Create]()
     
     
     static func saveQuiz() {
@@ -26,13 +26,13 @@ final class QuizModel {
     }
     
     
-    static func getQuiz() -> [Quiz] {
+    static func getQuiz() -> [Create] {
         let path = DataPersistenceManager.filepathToDocumentsDiretory(filename: filename).path
         
         if FileManager.default.fileExists(atPath: path) {
             if let data = FileManager.default.contents(atPath: path) {
                 do {
-                    quizsData = try PropertyListDecoder().decode([Quiz].self, from: data)
+                    quizsData = try PropertyListDecoder().decode([Create].self, from: data)
                     
                 } catch {
                     print("property list decoding error: \(error)")
@@ -70,9 +70,12 @@ final class QuizModel {
     }
    
     
-    static func addQuiz(quiz: Quiz) {
+    static func addQuiz(quiz: Create) {
         quizsData.append(quiz)
         saveQuiz()
     }
+    
+    
+    
     
 }

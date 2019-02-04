@@ -30,6 +30,7 @@
 		9000B0102204F2FD003ABF7E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9000B00F2204F2FD003ABF7E /* DetailViewController.swift */; };
 		9000B0122204FAB7003ABF7E /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9000B0112204FAB7003ABF7E /* DetailCell.swift */; };
 		90085CB02208C8FF00801455 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90085CAF2208C8FF00801455 /* SearchCell.swift */; };
+		90085CB22208D2E300801455 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90085CB12208D2E300801455 /* Create.swift */; };
 		90F849CE2207F07E00607730 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F849CD2207F07E00607730 /* SearchView.swift */; };
 		90F849D42208036900607730 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F849D32208036900607730 /* ProfileCell.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		9000B00F2204F2FD003ABF7E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9000B0112204FAB7003ABF7E /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		90085CAF2208C8FF00801455 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		90085CB12208D2E300801455 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
 		90F849CD2207F07E00607730 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		90F849D32208036900607730 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				9000AFF82204A534003ABF7E /* Quiz.swift */,
+				90085CB12208D2E300801455 /* Create.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				9000AFF72204A408003ABF7E /* QuizAPIClient.swift in Sources */,
 				9000B00E2204F2F2003ABF7E /* DetailView.swift in Sources */,
 				9000AFFE2204A8B1003ABF7E /* SearchViewController.swift in Sources */,
+				90085CB22208D2E300801455 /* Create.swift in Sources */,
 				90F849D42208036900607730 /* ProfileCell.swift in Sources */,
 				9000B00C2204D71B003ABF7E /* CreateView.swift in Sources */,
 				577118D722037ABA00B9DD0B /* NetworkHelper.swift in Sources */,

@@ -53,13 +53,13 @@ extension QuizViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let quizes = saveQuiz[indexPath.row]
-       //cell.myButton.setTitle(quizes.quizTitle, for: .normal)
+       
         cell.titleLabel.text = quizes.quizTitle
     cell.alertButton.addTarget(self, action: #selector(alertAction), for: .touchUpInside)
         return cell
     }
         @objc func alertAction(_ sender: UIButton) {
-        //let quize = quizs[sender.tag]
+        
  
         let alert = UIAlertController(title: "What do you need?", message: "Please Select an Option", preferredStyle: .actionSheet)
         let deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
@@ -82,7 +82,7 @@ extension QuizViewController: UICollectionViewDelegate {
         let quizes = saveQuiz[indexPath.row]
         let detailVC = DetailViewController()
         detailVC.quiz = quizes
-//        detailVC.detailLabel = quizes.quizTitle
+
         
         navigationController?.pushViewController(detailVC, animated: true)
     }

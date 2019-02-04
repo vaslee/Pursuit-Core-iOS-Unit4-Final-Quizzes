@@ -10,12 +10,36 @@ import UIKit
 
 class ProfileView: UIView {
     
-    lazy var myTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+    lazy var myView: UIView = {
+        let view = UIView()
         
-        return tableView
+        return view
     }()
+    
+    
+    lazy var myImage: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "placeholder-image"), for: .normal)
+        button.addTarget(self, action: #selector(imagePressed), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    @objc func imagePressed() {
+        
+    }
+    
+    lazy var myUserName: UIButton = {
+       let button = UIButton()
+        button.setTitle("UserName", for: .normal)
+        button.addTarget(self, action: #selector(userNamePressed), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    @objc func userNamePressed() {
+        
+    }
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -38,14 +62,12 @@ extension ProfileView {
     }
     
     func setupProfileTableView() {
-        addSubview(myTableView)
+        addSubview(myView)
         
-        myTableView.translatesAutoresizingMaskIntoConstraints = false
-        myTableView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        myTableView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        myTableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        myTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-        myTableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        myTableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        myView.translatesAutoresizingMaskIntoConstraints = false
+        myView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        myView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        myView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
+        myView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
     }
 }
