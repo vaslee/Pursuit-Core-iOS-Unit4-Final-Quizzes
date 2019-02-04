@@ -10,11 +10,11 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    var detailLabel: String?
+  var detailLabel: String?
     
     let detailView = DetailView()
     
-    public var quiz: Quiz!
+   public var quiz: Quiz!
     
     var detailQuiz = QuizModel.getQuiz() {
         didSet {
@@ -24,19 +24,20 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        detailView.detailCollectionView.dataSource = self
+//        detailView.detailCollectionView.delegate = self
         view.backgroundColor = #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
         view.addSubview(detailView)
       
-      // detailView.detailCollectionView.dataSource = self
-      // detailView.detailCollectionView.delegate = self
+       
         self.detailView.detailCollectionView.register(DetailCell.self, forCellWithReuseIdentifier: "DetailCell")
        
         
     }
     func setupData() {
-        if let title = quiz.quizTitle {
-            quiz.quizTitle = title
-        }
+       // if let title = quiz.quizTitle {
+            //quiz.quizTitle = title
+       // }
 //
 //        if let images = imageOfBooks {
 //            detailView.detailBookImage.image = images
@@ -52,7 +53,7 @@ class DetailViewController: UIViewController {
 
 }
 
-
+//
 //extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return detailQuiz.count
@@ -68,7 +69,7 @@ class DetailViewController: UIViewController {
 //        if cell.detailTitleLabel.text == detail.quizTitle {
 //            UIView.transition(with: cell.detailTitleLabel, duration: 1.0, options: [.transitionFlipFromRight], animations: {
 //
-//                cell.detailTitleLabel.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+//                cell.detailTitleLabel.text = detail.quizTitle
 //            })
 //        }
 //        return cell

@@ -29,6 +29,8 @@
 		9000B00E2204F2F2003ABF7E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9000B00D2204F2F2003ABF7E /* DetailView.swift */; };
 		9000B0102204F2FD003ABF7E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9000B00F2204F2FD003ABF7E /* DetailViewController.swift */; };
 		9000B0122204FAB7003ABF7E /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9000B0112204FAB7003ABF7E /* DetailCell.swift */; };
+		90F849CE2207F07E00607730 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F849CD2207F07E00607730 /* SearchView.swift */; };
+		90F849D42208036900607730 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F849D32208036900607730 /* ProfileCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		9000B00D2204F2F2003ABF7E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9000B00F2204F2FD003ABF7E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9000B0112204FAB7003ABF7E /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		90F849CD2207F07E00607730 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		90F849D32208036900607730 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 				577118C22203796A00B9DD0B /* QuizViewController.swift */,
 				9000B00D2204F2F2003ABF7E /* DetailView.swift */,
 				9000B00F2204F2FD003ABF7E /* DetailViewController.swift */,
+				90F849CD2207F07E00607730 /* SearchView.swift */,
 				9000AFFD2204A8B1003ABF7E /* SearchViewController.swift */,
 				9000B00B2204D71B003ABF7E /* CreateView.swift */,
 				9000AFFF2204A8B8003ABF7E /* CreateViewController.swift */,
@@ -167,6 +172,7 @@
 			children = (
 				9000B0062204B094003ABF7E /* QuizCell.swift */,
 				9000B0112204FAB7003ABF7E /* DetailCell.swift */,
+				90F849D32208036900607730 /* ProfileCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 				9000AFF72204A408003ABF7E /* QuizAPIClient.swift in Sources */,
 				9000B00E2204F2F2003ABF7E /* DetailView.swift in Sources */,
 				9000AFFE2204A8B1003ABF7E /* SearchViewController.swift in Sources */,
+				90F849D42208036900607730 /* ProfileCell.swift in Sources */,
 				9000B00C2204D71B003ABF7E /* CreateView.swift in Sources */,
 				577118D722037ABA00B9DD0B /* NetworkHelper.swift in Sources */,
 				9000B0072204B094003ABF7E /* QuizCell.swift in Sources */,
@@ -251,6 +258,7 @@
 				577118C12203796A00B9DD0B /* AppDelegate.swift in Sources */,
 				9000AFFC2204A640003ABF7E /* QuizModel.swift in Sources */,
 				577118D522037A9F00B9DD0B /* AppError.swift in Sources */,
+				90F849CE2207F07E00607730 /* SearchView.swift in Sources */,
 				9000B0122204FAB7003ABF7E /* DetailCell.swift in Sources */,
 				9000B0102204F2FD003ABF7E /* DetailViewController.swift in Sources */,
 				9000B00A2204D646003ABF7E /* ProfileView.swift in Sources */,

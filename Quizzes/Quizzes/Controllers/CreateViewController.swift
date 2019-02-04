@@ -11,7 +11,7 @@ import UIKit
 class CreateViewController: UIViewController {
 
     let createView = CreateView()
-    
+    var quizs: Quiz!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,9 +25,24 @@ class CreateViewController: UIViewController {
         createView.myFirstTextView.delegate = self
         createView.mySecondTextView.delegate = self
     }
-    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alert in }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
     @objc func createPressed(){
-        
+        if createView.myTextField.text?.isEmpty == false && createView.myFirstTextView.text.isEmpty == false && createView.mySecondTextView.text.isEmpty == false {
+            showAlert(title: "Card Completed", message: "Card is now in the Quiz")
+            
+        //    QuizModel.addQuiz(quiz: quizs)
+           let quizVC = QuizViewController()
+            navigationController?.popToViewController(quizVC, animated: true)
+            
+        } else {
+            showAlert(title: "Create not complete", message: "Please complete all the missing parts before you create.")
+        }
+
     }
 
     @objc func cancelPressed() {
